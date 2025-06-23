@@ -1,0 +1,6 @@
+refactor(utils): extract reusable git helper functions to githooks_utils.py
+
+- Moved common git-related functions from generate_git_timeline.py to githooks_utils.py
+- Added assert_inside_repo() for secure path validation inside repo
+- Ensures DRY principle and better maintainability for CLI tools
+
