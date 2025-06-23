@@ -1,18 +1,21 @@
 {
   "version": "2.1",
-  "last_updated": "2025-05-30T17:57:18.822332",
-  "scripts_hash": "b99711ba7275e4140831acd3cff72410",
+  "last_updated": "2025-06-23T19:00:48.266873",
+  "scripts_hash": "a3553c6a2990594344e00064ffa0b982",
   "docs_hash": "265e70bc2671847ada7ccf136c720f1c",
   "managed_files": {
     "scripts": [
+      "post-commit/__pycache__/githooks_utils.cpython-39.pyc",
+      "post-commit/commit-mess",
+      "post-commit/generate_git_timeline-old.py",
       "post-commit/generate_git_timeline.py",
+      "post-commit/generate_git_timeline2.py",
+      "post-commit/githooks_utils-old.py",
+      "post-commit/githooks_utils.py",
+      "post-commit/list_defs.py",
       "post-commit/update-readme.sh"
     ],
-    "docs": [
-      "conventional-commits-readme.md",
-      "example-of-logs.md",
-      "user-story-example-readme.md"
-    ]
+    "docs": []
   },
   "installer": "githooks-install.py"
 }

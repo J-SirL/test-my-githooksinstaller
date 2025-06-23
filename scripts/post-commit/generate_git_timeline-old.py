@@ -4,33 +4,30 @@ import subprocess
 import os
 import sys
 from datetime import datetime
-from pathlib import Path
+from githooks_utils import assert_inside_repo, get_repo_root # githooks_utils.py
 
-from githooks_utils import (
-    assert_inside_repo,
-    get_repo_root,
-    run_git_command,
-    get_repo_url,
-    get_branches,
-    get_tags,
-    get_pull_requests,
-    get_commits,
-)
+
 
 def generate_git_timeline():
     branch_name = os.getenv("BRANCH_NAME")
-
+    
     if not branch_name:
         print("❌ ERROR: Branch name not set. Exiting.")
         sys.exit(1)
 
-    print(f"🌿 Active Branch: {branch_name}")
-
+    print(f"🌿 Active Branch: {branch_name}")    
+    
     repo_root = get_repo_root()
     log_dir = os.path.join(repo_root, "docs", "commit-logs", branch_name)
     assert_inside_repo(Path(log_dir), Path(repo_root), "Timeline output directory")
 
+    # 🔐 Security lock: log_dir must be within repo_root
+    log_dir_abs = os.path.abspath(log_dir)
+    if not log_dir_abs.startswith(os.path.abspath(repo_root)):
+        print(f"❌ ERROR: log_dir ({log_dir_abs}) is outside the repository root ({repo_root})")
+        sys.exit(1)
     os.makedirs(log_dir, exist_ok=True)
+
     timeline_file_path = os.path.join(log_dir, "git_timeline_report.md")
 
     # Start generating the Markdown content
@@ -55,7 +52,7 @@ def generate_git_timeline():
             md_file.write(f"| {pr} |\n")
 
         # Commits Section
-        md_file.write("\n## 📁 Commit Log\n")
+        md_file.write("\n## 📑 Commit Log\n")
         for commit in get_commits():
             hash, message, author, date = commit.split(" | ")
             repo_url = get_repo_url()
@@ -64,6 +61,7 @@ def generate_git_timeline():
 
         md_file.write("\n## ✅ Summary\n- **Here you can put a summary if you like.**\n- **PR and MR inclusion (simulated).**\n")
 
+    # ✅ Stage and Commit the Timeline File
     subprocess.run(["git", "add", timeline_file_path], check=True)
     commit_hash = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     commit_message = f"Update commit timeline: {commit_hash}"
