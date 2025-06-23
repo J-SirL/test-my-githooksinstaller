@@ -27,6 +27,13 @@ if [ ! -d "$LOG_DIR" ]; then
   exit 1
 fi
 
+# 🚨 Spärr: säkerställ att vi inte skriver utanför tillåtna kataloger
+if [[ "$README_FILE" != "$REPO_ROOT/docs/commit-logs/"* ]]; then
+  echo "ERROR: Refusing to write outside docs/commit-logs/: $README_FILE"
+  exit 1
+fi
+
+
 # ✅ Aktivera nullglob för att hantera tomma kataloger
 shopt -s nullglob
 
