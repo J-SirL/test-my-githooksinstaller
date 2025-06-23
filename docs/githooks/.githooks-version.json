@@ -5,7 +5,6 @@
   "docs_hash": "265e70bc2671847ada7ccf136c720f1c",
   "managed_files": {
     "scripts": [
-      "post-commit/__pycache__/githooks_utils.cpython-39.pyc",
       "post-commit/commit-mess",
       "post-commit/generate_git_timeline-old.py",
       "post-commit/generate_git_timeline.py",
