@@ -1,6 +1,6 @@
 # 📊 Git Commit Timeline
 
-> **Generated on:** 2025-07-23 11:24:25
+> **Generated on:** 2025-07-23 12:18:31
 
 > **Branch:** `fix/setup-script-issues`
 
@@ -8,10 +8,11 @@
 | **Branch Name** | **Last Commit** | **Author** |
 |----------------|--------------|------------|
 | feat/update-githooks-installation-20250723-101758 | 097cb10 | Johan Sörell |
-| fix/setup-script-issues | 878b211 | Johan Sörell |
+| fix/setup-script-issues | e827e4e | Johan Sörell |
 | main | 0023519 | Johan Sörell |
 | origin | 0023519 | Johan Sörell |
 | origin/feat/update-githooks-installation-20250723-101758 | 097cb10 | Johan Sörell |
+| origin/fix/setup-script-issues | d56e7c9 | Johan Sörell |
 | origin/main | 0023519 | Johan Sörell |
 | origin/test/update-docs | b3c5724 | Johan Sörell |
 | origin/update-githooks-20250530-175718 | 4781509 | Johan Sörell |
@@ -28,6 +29,16 @@
 | 0412c25 | Merge pull request #1 from J-SirL/update-githooks-20250530-175718 | 2025-05-30 17:58:15 +0200 |
 
 ## 📁 Commit Log
+### ✅ Commit: [e827e4e](https://github.com/J-SirL/test-my-githooksinstaller/commit/e827e4e)
+- **Date:** 2025-07-23 12:18:30 +0200
+- **Author:** Johan Sörell
+- **Message:** feat(developer-setup): add CLI arguments and improve setup script
+
+### ✅ Commit: [d56e7c9](https://github.com/J-SirL/test-my-githooksinstaller/commit/d56e7c9)
+- **Date:** 2025-07-23 11:24:24 +0200
+- **Author:** Johan Sörell
+- **Message:** Update commit timeline: 878b2111d6ad33a0e1e8899a8fe01e61fa2d034f
+
 ### ✅ Commit: [878b211](https://github.com/J-SirL/test-my-githooksinstaller/commit/878b211)
 - **Date:** 2025-07-23 11:24:24 +0200
 - **Author:** Johan Sörell

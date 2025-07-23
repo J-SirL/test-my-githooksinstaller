@@ -7,4 +7,5 @@ Each commit links to its detailed log.
 
 | Commit Hash | Date & Time       | Author       | Message           |
 |-------------|------------------|--------------|-------------------|
+| [e827e4e8](./e827e4e8.md) | 2025-07-23 12:18 | Johan Sörell | feat(developer-setup): add CLI arguments and improve setup script |
 | [878b2111](./878b2111.md) | 2025-07-23 11:24 | Johan Sörell | refactoring(developer-setup, script): refactor developer-script |
