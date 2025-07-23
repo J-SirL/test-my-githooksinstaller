@@ -8,9 +8,12 @@ import sys
 import subprocess
 import shutil
 from pathlib import Path
+import argparse
 
 # Version of this installer
 INSTALLER_VERSION = "0.5"
+INSTALLER_URL = "https://github.com/J-SirL/git-hooks-installer"
+INSTALLER_ISSUES = "https://github.com/J-SirL/git-hooks-installer/issues"
 
 # Colors for output
 class Colors:
@@ -162,6 +165,59 @@ def install_dependencies():
 
 def main():
     """Main setup function."""
+    parser = argparse.ArgumentParser(
+        description=f"Git Hooks Setup Script v{INSTALLER_VERSION}\n"
+                    f"Install and manage git hooks for this repository.",
+        epilog=f"For updates and help, visit: {INSTALLER_URL}\n"
+               f"Report issues at: {INSTALLER_ISSUES}",
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    
+    parser.add_argument(
+        '-v', '--version',
+        action='version',
+        version=f'%(prog)s {INSTALLER_VERSION}'
+    )
+    
+    parser.add_argument(
+        '--template-dir',
+        type=Path,
+        help='Directory containing hook templates (default: auto-detect)'
+    )
+    
+    parser.add_argument(
+        '--check-only',
+        action='store_true',
+        help='Only check hook status without installing/updating'
+    )
+    
+    parser.add_argument(
+        '--force',
+        action='store_true',
+        help='Force update hooks without asking'
+    )
+    
+    parser.add_argument(
+        '--info',
+        action='store_true',
+        help='Show project information and exit'
+    )
+    
+    args = parser.parse_args()
+    
+    # Handle --info flag
+    if args.info:
+        print_color(f"Git Hooks Installer v{INSTALLER_VERSION}", Colors.GREEN)
+        print(f"Project URL: {INSTALLER_URL}")
+        print(f"Report issues: {INSTALLER_ISSUES}")
+        print()
+        print("This tool helps developers set up git hooks for:")
+        print("  - Automatic commit logging")
+        print("  - Git timeline generation")
+        print("  - README updates")
+        print("  - Commit message formatting")
+        return 0
+
     print_color(f"=== Git Hooks Setup Script v{INSTALLER_VERSION} ===", Colors.GREEN)
     print("This script will install git hooks for this repository")
     print()
@@ -199,11 +255,16 @@ def main():
     hooks_dir.mkdir(parents=True, exist_ok=True)
     
     # Check for hook template
-    template_paths = [
-        repo_root / "developer-setup" / "templates" / "post-commit",
-        repo_root / "templates" / "post-commit",
-        repo_root / "scripts" / "git-hooks" / "post-commit",
-    ]
+    if args.template_dir:
+        # User specified template directory
+        template_paths = [args.template_dir / "post-commit"]
+    else:
+        # Auto-detect template locations
+        template_paths = [
+            repo_root / "developer-setup" / "templates" / "post-commit",
+            repo_root / "templates" / "post-commit",
+            repo_root / "scripts" / "git-hooks" / "post-commit",
+        ]
     
     template_path = None
     for path in template_paths:
@@ -229,7 +290,11 @@ def main():
     elif hook_status == 1:
         print_color("⚠️  Git hooks exist but are a different version", Colors.YELLOW)
         print("   Your hook might have custom modifications or be outdated")
-        response = input(f"   Replace with standard hook v{INSTALLER_VERSION}? (y/N) ")
+        if args.force:
+            response = 'y'
+        else:
+            response = input(f"   Replace with standard hook v{INSTALLER_VERSION}? (y/N) ")
+
         if response.lower() == 'y':
             install_hook_from_template(template_path, hook_path)
             print_color(f"✅ Updated post-commit hook to v{INSTALLER_VERSION}", Colors.GREEN)
@@ -296,6 +361,9 @@ def main():
     print('  git commit -m "test: Testing git hooks"')
     print()
     print_color(f"Note: This is setup_githooks v{INSTALLER_VERSION}", Colors.YELLOW)
+    print_color(f"Version: {INSTALLER_VERSION}", Colors.YELLOW)
+    print_color(f"Updates: {INSTALLER_URL}", Colors.YELLOW)
+    print_color(f"Issues:  {INSTALLER_ISSUES}", Colors.YELLOW)
     
     return 0
 
