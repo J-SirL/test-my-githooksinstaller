@@ -1,6 +1,6 @@
 # 📊 Git Commit Timeline
 
-> **Generated on:** 2025-07-23 12:18:31
+> **Generated on:** 2025-07-23 13:04:32
 
 > **Branch:** `fix/setup-script-issues`
 
@@ -8,11 +8,11 @@
 | **Branch Name** | **Last Commit** | **Author** |
 |----------------|--------------|------------|
 | feat/update-githooks-installation-20250723-101758 | 097cb10 | Johan Sörell |
-| fix/setup-script-issues | e827e4e | Johan Sörell |
+| fix/setup-script-issues | 037e311 | Johan Sörell |
 | main | 0023519 | Johan Sörell |
 | origin | 0023519 | Johan Sörell |
 | origin/feat/update-githooks-installation-20250723-101758 | 097cb10 | Johan Sörell |
-| origin/fix/setup-script-issues | d56e7c9 | Johan Sörell |
+| origin/fix/setup-script-issues | c9800dc | Johan Sörell |
 | origin/main | 0023519 | Johan Sörell |
 | origin/test/update-docs | b3c5724 | Johan Sörell |
 | origin/update-githooks-20250530-175718 | 4781509 | Johan Sörell |
@@ -29,6 +29,16 @@
 | 0412c25 | Merge pull request #1 from J-SirL/update-githooks-20250530-175718 | 2025-05-30 17:58:15 +0200 |
 
 ## 📁 Commit Log
+### ✅ Commit: [037e311](https://github.com/J-SirL/test-my-githooksinstaller/commit/037e311)
+- **Date:** 2025-07-23 13:04:31 +0200
+- **Author:** Johan Sörell
+- **Message:** fix(developer-setup): correct repository URLs to actual project location
+
+### ✅ Commit: [c9800dc](https://github.com/J-SirL/test-my-githooksinstaller/commit/c9800dc)
+- **Date:** 2025-07-23 12:18:30 +0200
+- **Author:** Johan Sörell
+- **Message:** Update commit timeline: e827e4e86f402bcdde6d39fc26883e2d6170da70
+
 ### ✅ Commit: [e827e4e](https://github.com/J-SirL/test-my-githooksinstaller/commit/e827e4e)
 - **Date:** 2025-07-23 12:18:30 +0200
 - **Author:** Johan Sörell
