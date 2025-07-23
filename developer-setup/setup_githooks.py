@@ -12,8 +12,8 @@ import argparse
 
 # Version of this installer
 INSTALLER_VERSION = "0.5"
-INSTALLER_URL = "https://github.com/J-SirL/git-hooks-installer"
-INSTALLER_ISSUES = "https://github.com/J-SirL/git-hooks-installer/issues"
+INSTALLER_URL = "https://github.com/development-toolbox/development-toolbox-git-hooks-installer"
+INSTALLER_ISSUES = "https://github.com/development-toolbox/development-toolbox-git-hooks-installer/issues"
 
 # Colors for output
 class Colors:
