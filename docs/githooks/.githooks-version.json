@@ -1,15 +1,14 @@
 {
-  "version": "2.1",
-  "last_updated": "2025-07-23T10:17:58.229243",
-  "scripts_hash": "476ea5bd79e0bc4c8656e942b7ab7bcd",
-  "docs_hash": "265e70bc2671847ada7ccf136c720f1c",
-  "managed_files": {
-    "scripts": [
-      "post-commit/generate_git_timeline.py",
-      "post-commit/githooks_utils.py",
-      "post-commit/update-readme.sh"
-    ],
-    "docs": []
-  },
-  "installer": "githooks-install.py"
+  "version": "1.0.0",
+  "installed": "2025-07-25T17:58:33.827241",
+  "installer": "git-hooks-installer",
+  "branch": "feat/githooks-installation-20250725-175833",
+  "original_branch": "main",
+  "repository_validated": true,
+  "installation_summary": {
+    "files_created": 12,
+    "files_modified": 0,
+    "directories_created": 2,
+    "total_files": 12
+  }
 }
