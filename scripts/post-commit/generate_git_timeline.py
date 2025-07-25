@@ -3,8 +3,13 @@
 import subprocess
 import os
 import sys
+import io
 from datetime import datetime
 from pathlib import Path
+
+# Set UTF-8 encoding for stdout to handle emojis on Windows
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 from githooks_utils import (
     assert_inside_repo,
@@ -16,6 +21,7 @@ from githooks_utils import (
     get_pull_requests,
     get_commits,
 )
+
 
 def generate_git_timeline():
     branch_name = os.getenv("BRANCH_NAME")
@@ -75,5 +81,7 @@ def generate_git_timeline():
     except subprocess.CalledProcessError:
         print("⚠️ No changes detected. Skipping commit.")
 
+
+# Main entry point
 if __name__ == "__main__":
     generate_git_timeline()
